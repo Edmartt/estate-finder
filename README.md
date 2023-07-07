@@ -21,3 +21,38 @@ After that, I have created the classes and methods that I will need, in the busi
 This is the prototype diagram:
 
 ![](https://github.com/Edmartt/estate-finder/blob/main/assets/prototype.png)
+
+This is the final project structure:
+
+`
+.
+├── config.py
+├── docker-compose.yml
+├── Dockerfile
+├── README.md
+├── run.py
+└── src
+    ├── auth
+    │   ├── http_authentication.py
+    │   ├── __init__.py
+    │   └── jwt.py
+    ├── database
+    │   ├── database_interface.py
+    │   ├── __init__.py
+    │   └── mysql.py
+    ├── estate
+    │   ├── data_access_layer
+    │   │   ├── data_access_implementation.py
+    │   │   └── data_access_interface.py
+    │   ├── estate_errors
+    │   ├── http_estate.py
+    │   ├── __init__.py
+    │   ├── models
+    │   │   └── estate.py
+    │   ├── routes.py
+    │   └── utils
+    │       └── __init__.py
+    └── __init__.py
+`
+
+I have tried to follow the vertical slice architecture, because it provides flexibility and is easy to maintain over time.
