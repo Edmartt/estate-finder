@@ -14,4 +14,10 @@ Users are able to filter the properties by: year of construction, city and state
 
 I've started to solve this problem by designing diagram with the best structure (according to me) for this microservice
 
+
 After that, I have created the classes and methods that I will need, in the business logic structure, and finally, after having defined this aspect that I consider essential, I have moved on to create the directories and base files that constitute the project.
+
+
+This is the prototype diagram:
+
+![](https://github.com/Edmartt/estate-finder/blob/main/assets/prototype.png)
