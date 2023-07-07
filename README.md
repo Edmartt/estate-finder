@@ -24,7 +24,7 @@ This is the prototype diagram:
 
 This is the final project structure:
 
-`
+```
 .
 ├── config.py
 ├── docker-compose.yml
@@ -53,6 +53,6 @@ This is the final project structure:
     │   └── utils
     │       └── __init__.py
     └── __init__.py
-`
+```
 
 I have tried to follow the vertical slice architecture, because it provides flexibility and is easy to maintain over time.
