@@ -1,4 +1,4 @@
-# ESTATE FINDER
+# PROPERTY FINDER
 
 ## Requirements
 
