@@ -2,7 +2,6 @@
 
 from flask import Flask, app, request
 import pytest
-from src import estate
 from src.estate.data_access_layer.data_access_interface import DataAccessInterface
 
 from src.estate.http_estate import EstateFinder
@@ -16,11 +15,6 @@ class MockDataAccess(DataAccessInterface):
         city = args[1] if len(args) > 1 else None
         status = args[2] if len(args) > 2 else None
 
-        print('args in readP: ', args)
-        print(year)
-        print(city)
-        print(status)
-        
         data = [
 
             {
@@ -60,13 +54,11 @@ class MockDataAccess(DataAccessInterface):
             }
             ]
 
-        result = [
-                item for item in data
-                if (year is None or str(item.get('year')) == str(year)) and
-                   (city is None or item.get('city') == city) and
-                   (status is None or (str(status).lower() == 'none' and item.get('status') is None) or item.get('status') == status)
-            ]
-        print(result, "read filter")
+        result = [item for item in data if (year is None or str(item.get('year')) == str(year)) and 
+                  (city is None or item.get('city') == city) and
+                  (status is None or (str(status).lower() == 'none' and item.get('status') is None) or item.get('status') == status)
+                  ]
+
         return result
 
     def read_properties_without_filters(self):
