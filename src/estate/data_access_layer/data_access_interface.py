@@ -6,7 +6,7 @@ from abc import ABC, abstractmethod
 class DataAccessInterface(ABC):
 
     @abstractmethod
-    def read_properties_without_filters(self, *args: tuple):
+    def read_properties_without_filters(self):
         pass
 
     @abstractmethod
