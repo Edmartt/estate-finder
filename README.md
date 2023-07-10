@@ -22,7 +22,7 @@ After that, I have created the classes and methods that I will need, in the busi
 
 For requesting the api docs after running the project just go to `/api/docs` and you will see something like this:
 
-![](https://github.com/Edmartt/estate-finder/blob/main/assets/swagger.png)
+![](https://github.com/Edmartt/estate-finder/blob/dev/assets/swagger.png)
 
 
 This is the prototype diagram:
