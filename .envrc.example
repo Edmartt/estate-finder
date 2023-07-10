@@ -1,0 +1,9 @@
+export FLASK_APP=run.py
+export FLASK_DEBUG=true
+export FLASK_CONFIG=development
+
+export MYSQL_HOST=<mysql-host>
+export MYSQL_PORT=<mysql-port>
+export MYSQL_USER=<mysql-user>
+export MYSQL_PASSWORD=<mysql-password>
+export MYSQL_DB=<db-name>
