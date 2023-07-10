@@ -1,4 +1,4 @@
-.env*
+
 #DB backup
 db/
 db/*
@@ -125,6 +125,7 @@ celerybeat.pid
 # Environments
 .env
 .venv
+.envrc
 env/
 venv/
 ENV/
