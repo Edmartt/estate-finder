@@ -13,4 +13,4 @@ data_access_implementation = MySQLDataAccessLayer(connector)
 estates = EstateFinder.as_view('state finder', data_access_implementation)
 
 
-estate_routes.add_url_rule('/api/v1/estates', view_func=estates, methods=['GET'])
+estate_routes.add_url_rule('/estates', view_func=estates, methods=['GET'])
