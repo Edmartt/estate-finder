@@ -1,4 +1,4 @@
-# PROPERTY FINDER
+# ESTATE FINDER
 
 ## Requirements
 
@@ -73,43 +73,65 @@ This is the final project structure:
 I have tried to follow the vertical slice architecture, because it provides flexibility and is easy to maintain over time.
 
 
-## Running
+## Running Development Version With Flask
 
-clone the repo:
+1. Clone the repo:
 
 ```
 git clone https://github.com/Edmartt/estate-finder.git
 ```
-browse into the project directory
+
+2. Browse into the project directory
 
 ```
 cd estate-finder
 ```
 
-create a virtual environment
+3. Create a virtual environment
 
 ```
 python -m venv <virtual-environment-name>
 ```
 
-activate the virtual environment
+4. Activate the virtual environment
 
 ```
 source <virtual-environment-name>/bin/activate
 ```
 
-set the environment variables following the envrc.example file
+5. Set the environment variables following the envrc.example file here ![.envrc.example](https://github.com/Edmartt/estate-finder/blob/dev/.envrc.example)
 
 ```
 source .envrc
 ```
 
-and run with
+6. Run with
 
 ```
 flask run
 ```
 
+## Running with Docker
+
+1. Build the image
+
+```
+docker build -t edmartt/estate-finder:beta .
+```
+
+2. create a .env file following the .env.example file in this repo
+
+![.env.example](https://github.com/Edmartt/estate-finder/blob/dev/.env.example)
+
+3. Run a container instance
+
+```
+docker run --rm -p 6100:5000 --env-file .env edmartt/estate-finder:beta
+```
+
+### Note
+
+You can still take a look at the swagger docs in localhost:6000/api/docs, the only difference with the development version is that you can't make requests
 
 
 ### doubts during development
