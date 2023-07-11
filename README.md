@@ -158,3 +158,8 @@ This is the final model:
 Some improvements for this database that I thought of were the use of authentication systems such as Auth0 to handle authentication through a robust platform saving time in maintaining code or updating obsolete libraries. Although there is also an alternative of having a separate database with a microservice that handles the authentication of users, sending name and password that only serve in this microservice, but in response to a successful authentication returns a JWT whose signature is generated privately, and also the JWT is assigned a time of life and is a more secure mechanism to manage user access.
 
 The latter alternative would involve maintenance, but would have full control of user data in a more secure way.
+
+
+## Note
+
+In addition to the already mentioned, something quite striking is that the passwords are stored in plain text, which is most insecure in case the database is compromised. The ideal is to add some encryption algorithm. There are implementations such as libraries that make use of bcrypt, which adds enough security to the passwords with hash functions that prevent the readability of the password and in case the database is compromised, access to user passwords would not be something easy at least with the paradigm of classical computing.
