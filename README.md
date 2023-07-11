@@ -140,3 +140,21 @@ You can still take a look at the swagger docs in localhost:6000/api/docs, the on
 Do I need a sample json file?
 
 For the development of the solution it was required to create a .json file with the data that I expected to receive from a client application, which I found a little strange because if you can only show the properties for sale, pre sale and sold, the ideal solution is to create a query from sql to bring only the records that match that criteria. Additionally, it is requested to filter the results optionally with three parameters that are the year, city and status, seeing that I am asked for a json of the expected data of a client left me with much doubt, but I thought it was a better solution to generate a documentation with swagger.
+
+## Database concept
+
+I was asked to extend the database from which I get the records for this microservice with an ER diagram to support likes to properties while keeping a history of likes for each registered user.
+
+I ended up with this extended version because users can like any number of properties, but I thought also when they don't like it anymore for some reason, then I added to my table a field called 'active' to know with a new record if the property is already liked or not.
+
+The like_history table takes into account the user who liked the property as well as the identifier of the property and the date of creation of the record. Each time you like a different property or stop liking it, a new record will be added and you will have access to a complete history of all the properties that have been liked by the users.
+
+This is the final model:
+
+
+![](https://github.com/Edmartt/estate-finder/blob/dev/assets/extended%20database.png)
+
+
+Some improvements for this database that I thought of were the use of authentication systems such as Auth0 to handle authentication through a robust platform saving time in maintaining code or updating obsolete libraries. Although there is also an alternative of having a separate database with a microservice that handles the authentication of users, sending name and password that only serve in this microservice, but in response to a successful authentication returns a JWT whose signature is generated privately, and also the JWT is assigned a time of life and is a more secure mechanism to manage user access.
+
+The latter alternative would involve maintenance, but would have full control of user data in a more secure way.
