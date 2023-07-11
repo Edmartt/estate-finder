@@ -1,6 +1,6 @@
 
 
-def validate_http_filters(filters: dict) -> dict |  tuple:
+def validate_http_filters(filters: dict) -> dict | tuple:
     allowed_filters = ['year', 'status', 'city']
 
     for _, value in enumerate(filters):

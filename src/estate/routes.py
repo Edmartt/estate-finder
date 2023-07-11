@@ -2,7 +2,8 @@
 
 from src.database.mysql_connection import MySQLConnection
 from src.estate import estate_routes
-from src.estate.data_access_layer.data_access_implementation import MySQLDataAccessLayer
+from src.estate.data_access_layer.data_access_implementation\
+    import MySQLDataAccessLayer
 from src.estate.http_estate import EstateFinder
 
 

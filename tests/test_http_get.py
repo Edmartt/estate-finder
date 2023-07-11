@@ -8,9 +8,9 @@ from src.estate.http_estate import EstateFinder
 
 
 class MockDataAccess(DataAccessInterface):
-    
+
     def read_properties_with_filters(self, *args):
-        
+
         year = args[0] if len(args) > 0 else None
         city = args[1] if len(args) > 1 else None
         status = args[2] if len(args) > 2 else None
@@ -18,7 +18,7 @@ class MockDataAccess(DataAccessInterface):
         data = [
 
             {
-                'address':'my mock address',
+                'address': 'my mock address',
                 'city': 'medellin',
                 'description': 'my mock description',
                 'price': 230000,
@@ -27,7 +27,7 @@ class MockDataAccess(DataAccessInterface):
             },
 
             {
-                'address':'my mock address2',
+                'address': 'my mock address2',
                 'city': 'medellin',
                 'description': 'my mock description2',
                 'price': 330000,
@@ -36,7 +36,7 @@ class MockDataAccess(DataAccessInterface):
             },
 
             {
-                'address':'my mock address3',
+                'address': 'my mock address3',
                 'city': 'medellin',
                 'description': 'my mock description2',
                 'price': 330000,
@@ -45,18 +45,19 @@ class MockDataAccess(DataAccessInterface):
             },
 
             {
-                'address':'my mock address5',
+                'address': 'my mock address5',
                 'city': 'medellin',
                 'description': 'my mock description2',
                 'price': 330000,
                 'status': 'vendido',
                 'year': 2018
             }
-            ]
+        ]
 
-        result = [item for item in data if (year is None or str(item.get('year')) == str(year)) and 
+        result = [item for item in data if (year is None or str(item.get('year')) == str(year)) and
                   (city is None or item.get('city') == city) and
-                  (status is None or (str(status).lower() == 'none' and item.get('status') is None) or item.get('status') == status)
+                  (status is None or (str(status).lower() == 'none' and item.get(
+                      'status') is None) or item.get('status') == status)
                   ]
 
         return result
@@ -64,7 +65,7 @@ class MockDataAccess(DataAccessInterface):
     def read_properties_without_filters(self):
         response = [
             {
-                'address':'my mock address',
+                'address': 'my mock address',
                 'city': 'my mock city',
                 'description': 'my mock description',
                 'price': 230000,
@@ -72,37 +73,38 @@ class MockDataAccess(DataAccessInterface):
             },
 
             {
-                'address':'my mock address2',
+                'address': 'my mock address2',
                 'city': 'my mock city2',
                 'description': 'my mock description2',
                 'price': 330000,
                 'status': 'my mock status2'
             }
-            ]
+        ]
 
         return response
 
-def test_http_estate_get_without_filters():
-    
-    expected_response = {
-            'response':[
-                {
-                    'address':'my mock address',
-                    'city': 'my mock city',
-                    'description': 'my mock description',
-                    'price': 230000,
-                    'status': 'my mock status'
-                    },
 
-                {
-                    'address':'my mock address2',
-                    'city': 'my mock city2',
-                    'description': 'my mock description2',
-                    'price': 330000,
-                    'status': 'my mock status2'
-                    }
-                ]
+def test_http_estate_get_without_filters():
+
+    expected_response = {
+        'response': [
+            {
+                'address': 'my mock address',
+                'city': 'my mock city',
+                'description': 'my mock description',
+                'price': 230000,
+                'status': 'my mock status'
+            },
+
+            {
+                'address': 'my mock address2',
+                'city': 'my mock city2',
+                'description': 'my mock description2',
+                'price': 330000,
+                'status': 'my mock status2'
             }
+        ]
+    }
 
     app = Flask(__name__)
 
@@ -120,23 +122,23 @@ def test_http_estate_get_without_filters():
 
 
 expected_2022 = {
-        'response': [
-            {'address':'my mock address',
-             'city': 'medellin',
-             'description': 'my mock description',
-             'price': 230000,
-             'status': 'en_venta',
-             'year': 2022
-             }
-            ]
-        }
+    'response': [
+        {'address': 'my mock address',
+         'city': 'medellin',
+         'description': 'my mock description',
+         'price': 230000,
+         'status': 'en_venta',
+         'year': 2022
+         }
+    ]
+}
 
 
 @pytest.mark.parametrize(
-        'filter_values, expected',
-        [((2022, 'medellin', 'en_venta'), expected_2022)
-         ]
-        )
+    'filter_values, expected',
+    [((2022, 'medellin', 'en_venta'), expected_2022)
+     ]
+)
 def test_http_estate_get_with_one_filters(filter_values, expected):
     app = Flask(__name__)
     year, city, status = filter_values
@@ -153,23 +155,25 @@ def test_http_estate_get_with_one_filters(filter_values, expected):
 
 
 expected_two_filters = {
-        'response': [
-            {
-                'address':'my mock address',
-                'city': 'medellin',
-                'description': 'my mock description',
-                'price': 230000,
-                'status': 'en_venta',
-                'year': 2022
-            },
-            ]
-        }
+    'response': [
+        {
+            'address': 'my mock address',
+            'city': 'medellin',
+            'description': 'my mock description',
+            'price': 230000,
+            'status': 'en_venta',
+            'year': 2022
+        },
+    ]
+}
+
+
 @pytest.mark.parametrize(
-        'filter_values, expected',
-        [
-            (('medellin','en_venta'), expected_two_filters)
-        ]
-        )
+    'filter_values, expected',
+    [
+        (('medellin', 'en_venta'), expected_two_filters)
+    ]
+)
 def test_http_estate_get_with_two_filters(filter_values, expected):
     app = Flask(__name__)
 

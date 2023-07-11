@@ -3,7 +3,8 @@
 from flask import jsonify, request
 from flask.views import MethodView
 
-from src.estate.data_access_layer.data_access_interface import DataAccessInterface
+from src.estate.data_access_layer.data_access_interface\
+    import DataAccessInterface
 from src.estate.utils.filter_validator import validate_http_filters
 from src.estate.estate_errors.errors import bad_request, not_found
 
@@ -28,11 +29,11 @@ class EstateFinder(MethodView):
             if valid_filters.get('not_valid'):
                 not_valid_filter = valid_filters.get('not_valid')
 
-                return jsonify({'response': f'some filters are not valid: {not_valid_filter}'}), 400
+                return jsonify({'response': f'some filters are not valid:\
+                        {not_valid_filter}'}), 400
 
         args = valid_filters
 
         result = self.data_access.read_properties_with_filters(*args)
-
 
         return jsonify({'response': result}), 200

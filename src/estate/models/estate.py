@@ -2,7 +2,8 @@
 
 class Estate:
 
-    def __init__(self, address: str, city: str, status: str, price: float, description: str) -> None:
+    def __init__(self, address: str, city: str, status: str,
+                 price: float, description: str) -> None:
 
         self.address = address
         self.city = city

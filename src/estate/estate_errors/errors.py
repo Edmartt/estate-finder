@@ -12,6 +12,7 @@ def not_authorized(error):
 def bad_request(error):
     return make_response(jsonify({'response': 'bad request'}), 400)
 
+
 @estate.estate_routes.errorhandler(404)
 def not_found(error):
     return make_response(jsonify({'response': 'resource not found'}), 404)
