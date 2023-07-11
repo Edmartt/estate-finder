@@ -27,7 +27,7 @@ For requesting the api docs after running the project just go to `/api/docs` and
 
 This is the prototype diagram:
 
-![](https://github.com/Edmartt/estate-finder/blob/main/assets/prototype.png)
+![](https://github.com/Edmartt/estate-finder/blob/dev/assets/prototype.png)
 
 This is the final project structure:
 
