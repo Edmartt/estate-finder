@@ -34,4 +34,3 @@ class MySQLConnection(IDatabaseConnecton):
         if connection is not None:
 
             connection.close()
-    

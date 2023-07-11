@@ -11,12 +11,12 @@ def create_app(config_name: str) -> Flask:
     API_URL = '/static/swagger.yaml'
 
     swagger_blueprint = get_swaggerui_blueprint(
-            SWAGGER_URL,
-            API_URL,
-            config={
-                'estate finder': 'search estates'
-                }
-            )
+        SWAGGER_URL,
+        API_URL,
+        config={
+            'estate finder': 'search estates'
+        }
+    )
     app.config.from_object(config[config_name])
     config[config_name].init_app(app)
 
@@ -26,4 +26,3 @@ def create_app(config_name: str) -> Flask:
     app.register_blueprint((swagger_blueprint))
 
     return app
-
